@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INFOLAB | Sistema de Inventario</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<section id="loginScreen" class="screen active">
+    <div class="card">
+        <h1>INFOLAB</h1>
+        <p>Acceso al sistema</p>
+
+<div class="input-group">
+    <input type="text" id="user" placeholder="Usuario">
+    <span class="icon">👤</span>
+</div>
+
+<div class="input-group">
+    <input type="password" id="pass" placeholder="Contraseña">
+    <span class="icon">🔒</span>
+</div>
+        <button onclick="login()">Ingresar</button>
+        <span id="loginError"></span>
+    </div>
+</section>
+
+<!-- STOCK INICIAL -->
+<section id="stockScreen" class="screen">
+    <div class="card big">
+        <h1>Stock Inicial</h1>
+        <p>Ingrese cantidades disponibles</p>
+
+        <div class="grid">
+            <input type="number" id="monitor" placeholder="Monitores">
+            <input type="number" id="teclado" placeholder="Teclados">
+            <input type="number" id="mouse" placeholder="Mouse">
+            <input type="number" id="mousepad" placeholder="Mousepad">
+            <input type="number" id="audifonos" placeholder="Audífonos">
+        </div>
+
+        <button onclick="guardarStock()">Continuar</button>
+    </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="menuScreen" class="screen">
+
+<header>
+    <h1>INFOLAB Inventario</h1>
+    <button class="salir" onclick="salir()">Salir</button>
+</header>
+
+<div class="panel-menu">
+
+<button onclick="abrirModalVenta('monitor')">Vender Monitor</button>
+<button onclick="abrirModalVenta('teclado')">Vender Teclado</button>
+<button onclick="abrirModalVenta('mouse')">Vender Mouse</button>
+<button onclick="abrirModalVenta('mousepad')">Vender Mousepad</button>
+<button onclick="abrirModalVenta('audifonos')">Vender Audífonos</button>
+
+<button onclick="mostrarInventario()">Ver Inventario</button>
+
+<button onclick="abrirModalReabastecer()">Reabastecer</button>
+
+</div>
+
+<div id="resultado" class="resultado"></div>
+
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-box">
+
+        <h2 id="modalTitulo">Acción</h2>
+
+        <select id="productoSelect">
+            <option value="monitor">Monitor</option>
+            <option value="teclado">Teclado</option>
+            <option value="mouse">Mouse</option>
+            <option value="mousepad">Mousepad</option>
+            <option value="audifonos">Audífonos</option>
+        </select>
+
+        <input type="number" id="cantidadModal" placeholder="Cantidad">
+
+        <button onclick="confirmarAccion()">Aceptar</button>
+        <button class="cerrar" onclick="cerrarModal()">Cancelar</button>
+
+    </div>
+</div>
+<script src="script.js"></script>
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- IZQUIERDA -->
+        <div class="footer-left">
+            <h3>INFOLAB</h3>
+            <p>© 2026 Todos los derechos reservados</p>
+            <p>Desarrollado por: Matias Nicolas Zules Acosta & Victor Josue Carrera Montesdeoca</p>
+            <p>Licencia: Uso educativo</p>
+        </div>
+
+        <!-- DERECHA -->
+        <div class="footer-right">
+            <h3>Contacto</h3>
+
+            <p>📱 <a href="https://wa.me/59396317243?text=Bievenido%20a%20INFOLAB!!%20%F0%9F%98%81">0963172493</a></p>
+
+            <p>📷 <a href="https://www.instagram.com/matt_i.ft?igsh=N215bGkxZ2t4bnl1" target="_blank">Instagram</a></p>
+
+            <p>📘 <a href="https://www.facebook.com/share/18FbbuYqaz/" target="_blank">Facebook</a></p>
+        </div>
+
+    </div>
+
+</footer>
+</body>
+</html>
